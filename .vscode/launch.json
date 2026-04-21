@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AutomotoraApplication<Automotora>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.libro.Biblioteca.AutomotoraApplication",
+            "projectName": "Automotora",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
