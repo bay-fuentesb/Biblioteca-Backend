@@ -1,4 +1,4 @@
-package com.libro.Libros.controller;
+package com.Libro.Libros.controller;
 
 import java.util.List;
 
@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.libro.Libros.Model.entities.Libro;
-import com.libro.Libros.service.LibroService;
+import com.Libro.Libros.Model.entities.Libro;
+import com.Libro.Libros.service.LibroService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
