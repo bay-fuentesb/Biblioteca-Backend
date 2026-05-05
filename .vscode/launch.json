@@ -9,6 +9,16 @@
             "projectName": "Automotora",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AutomotoraApplication<com.vehiculo-Automotora>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.Libro.Libros.AutomotoraApplication",
+            "projectName": "com.vehiculo-Automotora",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
