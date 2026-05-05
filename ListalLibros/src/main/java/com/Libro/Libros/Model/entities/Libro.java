@@ -1,4 +1,4 @@
-package com.libro.Libros.Model.entities;
+package com.Libro.Libros.Model.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

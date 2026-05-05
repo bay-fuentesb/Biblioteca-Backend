@@ -1,4 +1,4 @@
-package com.libro.Libros;
+package com.vehiculo.Automotora;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
