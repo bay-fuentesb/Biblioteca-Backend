@@ -1,4 +1,4 @@
-package com.vehiculo.Automotora;
+package com.reserva.Reserva;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
