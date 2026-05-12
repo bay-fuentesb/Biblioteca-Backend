@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <!-- Sección de Bienvenida -->
+  <div class="p-5 mb-4 bg-light rounded-3 border">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Sistema de Gestión de Biblioteca</h1>
+      <p class="col-md-8 fs-4">
+        Bienvenido al panel de control. Desde aquí puedes gestionar el inventario de libros, 
+        revisar los autores registrados y administrar los préstamos activos.
+      </p>
+      <button class="btn btn-primary btn-lg" type="button" routerLink="/libros">
+        Ver Catálogo
+      </button>
+    </div>
+  </div>
+
+  <!-- Tarjetas de Acceso Rápido (Dashboard) -->
+  <div class="row align-items-md-stretch">
+    <!-- Tarjeta Libros -->
+    <div class="col-md-4 mb-3">
+      <div class="h-100 p-4 t-white bg-dark rounded-3 text-white">
+        <i class="bi bi-book fs-1"></i>
+        <h2>Libros</h2>
+        <p>Administra el inventario completo, añade nuevos ejemplares o edita la información existente.</p>
+        <button class="btn btn-outline-light" type="button" routerLink="/libros/nuevo">Añadir Libro</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta Autores -->
+    <div class="col-md-4 mb-3">
+      <div class="h-100 p-4 bg-light border rounded-3">
+        <i class="bi bi-person-badge fs-1"></i>
+        <h2>Autores</h2>
+        <p>Gestiona la base de datos de autores y vincula sus obras al catálogo de la biblioteca.</p>
+        <button class="btn btn-outline-secondary" type="button" routerLink="/autores">Ver Autores</button>
+      </div>
+    </div>
+
+    <!-- Tarjeta Préstamos -->
+    <div class="col-md-4 mb-3">
+      <div class="h-100 p-4 bg-info text-dark border rounded-3">
+        <i class="bi bi-calendar-check fs-1"></i>
+        <h2>Préstamos</h2>
+        <p>Controla las fechas de entrega y devoluciones de los usuarios del sistema.</p>
+        <button class="btn btn-outline-dark" type="button" routerLink="/prestamos">Ir a Préstamos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página simple -->
+  <footer class="pt-3 mt-4 text-muted border-top">
+    © 2026 Biblioteca Central - Panel de Administración
+  </footer>
+</div>
