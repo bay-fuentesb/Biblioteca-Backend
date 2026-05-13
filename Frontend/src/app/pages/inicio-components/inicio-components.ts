@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { LibrosServices } from '../../services/libro-services';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Libro } from '../../models/Libro';
 
 @Component({
   selector: 'app-inicio-components',
@@ -35,5 +36,16 @@ export class InicioComponents implements OnInit {
     });
 
   }
+
+
+libro: Libro[] = [
+  {
+    id_libro: 1,
+    titulo: 'El Señor de los Anillos',
+    isbn: '978-0544003415',
+    descripcion: 'Una épica historia de fantasía escrita por J.R.R. Tolkien.',
+    anno_publicacion: 1954
+  }
+]
 
 }
