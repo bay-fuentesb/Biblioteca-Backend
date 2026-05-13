@@ -11,7 +11,7 @@ export class LibrosServices {
   private http = inject(HttpClient)
   
   async obtenerLibros(){
-    return await lastValueFrom(this.http.get<Libro2>(environment.urlLibro));
+    return await lastValueFrom(this.http.get<Libro2[]>(environment.urlLibro));
   }
 
   async crearLibro(libroNuevo:bodyAgregarLibro){
