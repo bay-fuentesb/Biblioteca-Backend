@@ -41,13 +41,13 @@ public class LibroController {
 
   
     @PostMapping("")
-    public Libro crearLibro(@Valid @RequestBody LibroRequest libroRequest) {
-        return libroService.crearLibro(libroRequest);
+    public Libro agregarLibro(@Valid @RequestBody LibroRequest libroRequest) {
+        return libroService.AgregarLibro(libroRequest);
     }
 
     @PutMapping("")
     public Libro actualizarLibro(@Valid @RequestBody LibroActualizarRequest libroActualizarRequest) {
-        return libroService.actualizarLibro(libroActualizarRequest);
+        return libroService.actualizaLibro(libroActualizarRequest);
     }
 
     @DeleteMapping("/{idLibro}")

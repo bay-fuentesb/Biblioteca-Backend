@@ -17,7 +17,7 @@ public class Ejemplar {
     private int id_ejemplar;
 
     @Column(nullable = false)
-    private String codigo_barra;
+    private String codigo_ejemplar;
     
     @Column(nullable = false)
     private String estado_fisico;
