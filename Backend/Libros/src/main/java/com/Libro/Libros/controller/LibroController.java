@@ -27,46 +27,29 @@ public class LibroController {
     @Autowired
     private LibroService libroService;
 
-    /**
-     * Obtener todos los libros
-     * GET localhost:8080/libro
-     */
+   
     @GetMapping("")
     public List<Libro> obtenerTodosLibros() {
         return libroService.obtenerTodosLibros();
     }
 
-    /**
-     * Obtener un libro por ID
-     * GET localhost:8080/libro/{id}
-     */
+
     @GetMapping("/{idLibro}")
     public Libro obtenerLibroPorId(@PathVariable int idLibro) {
         return libroService.obtenerLibroPorId(idLibro);
     }
 
-    /**
-     * Crear un nuevo libro
-     * POST localhost:8080/libro
-     */
+  
     @PostMapping("")
     public Libro crearLibro(@Valid @RequestBody LibroRequest libroRequest) {
         return libroService.crearLibro(libroRequest);
     }
 
-    /**
-     * Actualizar un libro existente
-     * PUT localhost:8080/libro
-     */
     @PutMapping("")
     public Libro actualizarLibro(@Valid @RequestBody LibroActualizarRequest libroActualizarRequest) {
         return libroService.actualizarLibro(libroActualizarRequest);
     }
 
-    /**
-     * Eliminar un libro
-     * DELETE localhost:8080/libro/{id}
-     */
     @DeleteMapping("/{idLibro}")
     public String eliminarLibro(@PathVariable int idLibro) {
         return libroService.eliminarLibro(idLibro);
