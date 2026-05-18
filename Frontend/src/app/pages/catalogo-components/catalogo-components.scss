@@ -4,10 +4,44 @@
   padding: 2rem 1rem 3rem;
 }
 
+.catalogo-content {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 300px);
+  gap: 2rem;
+}
+
+.catalogo-main {
+  flex: 1;
+}
+
+.catalogo-title-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .catalogo-page h2 {
-  margin-bottom: 1.5rem;
+  margin: 0;
   font-size: 2rem;
   color: #111827;
+}
+
+.catalogo-info {
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 1rem;
+  border-left: 4px solid #2563eb;
+}
+
+.catalogo-info p {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .libros-grid {

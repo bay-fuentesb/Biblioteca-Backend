@@ -1,31 +1,36 @@
 <section class="catalogo-page px-4 py-5">
-  <div class="catalogo-header">
-    <div>
-      <h2>Catálogo de libros</h2>
+  <div class="catalogo-content">
+    <div class="catalogo-main">
+      <div class="catalogo-title-btn">
+        <h2>Catálogo de libros</h2>
+        <a routerLink="/libros/nuevo" class="btn btn-secondary">Agregar nuevo libro</a>
+      </div>
+
+      <div *ngIf="cargando" class="status-message">Cargando libros...</div>
+      <div *ngIf="!cargando && error" class="status-message error">{{ error }}</div>
+
+      <div *ngIf="!cargando && libros.length > 0" class="libros-grid">
+        <article *ngFor="let libro of libros" class="libro-card">
+          <div class="libro-cover">
+            <img src="/book.svg" alt="Portada libro" />
+          </div>
+          <div class="libro-info">
+            <h3>{{ libro.titulo }}</h3>
+            <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
+            <p><strong>Año:</strong> {{ libro.anno_publicacion }}</p>
+            <p>{{ libro.descripcion }}</p>
+          </div>
+          <a [routerLink]="['/libros', libro.id_libro]" class="btn btn-primary">Ver detalles</a>
+        </article>
+      </div>
+
+      <div *ngIf="!cargando && libros.length === 0" class="status-message">
+        No se encontraron libros en el backend.
+      </div>
+    </div>
+
+    <div class="catalogo-info">
       <p>Explora todos los títulos publicados y accede a cada obra desde el backend.</p>
     </div>
-    <a routerLink="/libros/nuevo" class="btn btn-secondary">Agregar nuevo libro</a>
-  </div>
-
-  <div *ngIf="cargando" class="status-message">Cargando libros...</div>
-  <div *ngIf="!cargando && error" class="status-message error">{{ error }}</div>
-
-  <div *ngIf="!cargando && libros.length > 0" class="libros-grid">
-    <article *ngFor="let libro of libros" class="libro-card">
-      <div class="libro-cover">
-        <img src="/book.svg" alt="Portada libro" />
-      </div>
-      <div class="libro-info">
-        <h3>{{ libro.titulo }}</h3>
-        <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
-        <p><strong>Año:</strong> {{ libro.anno_publicacion }}</p>
-        <p>{{ libro.descripcion }}</p>
-      </div>
-      <a [routerLink]="['/libros', libro.id_libro]" class="btn btn-primary">Ver detalles</a>
-    </article>
-  </div>
-
-  <div *ngIf="!cargando && libros.length === 0" class="status-message">
-    No se encontraron libros en el backend.
   </div>
 </section>
