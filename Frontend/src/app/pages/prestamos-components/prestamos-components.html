@@ -4,9 +4,45 @@
       <h2>Préstamos</h2>
     </div>
     <div class="page-info">
-      <p>Esta sección está lista para conectarse con los endpoints del backend de préstamos.</p>
+      <p>Esta sección está lista para conectarse con los endpoints de préstamos.</p>
       <p>Aquí podrás ver las operaciones activas y controlar el estado de cada préstamo.</p>
-      <a routerLink="/libros" class="btn btn-secondary">Volver a Libros</a>
+      <div>
+        <button class="btn" type="button" (click)="toggleFormulario()">Crear préstamo</button>
+      </div>
+
+      <div *ngIf="createdPrestamo" class="prestamo-creado-card">
+        <h3>Préstamo creado</h3>
+        <p>Se registró el préstamo correctamente y estás en la pestaña de Préstamos.</p>
+        <div class="prestamo-detalle">
+          <div><strong>ID Libro:</strong> {{createdPrestamo.id_libro || createdPrestamo.libroId || 'N/D'}}</div>
+          <div><strong>Usuario:</strong> {{createdPrestamo.usuario || createdPrestamo.nombre || 'N/D'}}</div>
+          <div><strong>Fecha devolución:</strong> {{createdPrestamo.fecha_devolucion || createdPrestamo.fechaDevolucion || 'N/D'}}</div>
+          <div *ngIf="createdPrestamo.id"><strong>ID Préstamo:</strong> {{createdPrestamo.id}}</div>
+        </div>
+      </div>
+
+      <div *ngIf="mostrarFormulario" class="nuevo-prestamo-form">
+        <div *ngIf="mensaje" class="notification success">{{mensaje}}</div>
+        <div *ngIf="error" class="notification error">{{error}}</div>
+        <form (submit)="crearPrestamo(); $event.preventDefault();">
+          <div class="form-row">
+            <label>Id Libro</label>
+            <input type="number" [(ngModel)]="id_libro" name="id_libro" />
+          </div>
+          <div class="form-row">
+            <label>Usuario</label>
+            <input type="text" [(ngModel)]="usuario" name="usuario" />
+          </div>
+          <div class="form-row">
+            <label>Fecha devolución</label>
+            <input type="date" [(ngModel)]="fecha_devolucion" name="fecha_devolucion" />
+          </div>
+          <div class="form-actions">
+            <button class="btn" type="submit">Guardar préstamo</button>
+            <button class="btn btn-secondary" type="button" (click)="toggleFormulario()">Cancelar</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </section>

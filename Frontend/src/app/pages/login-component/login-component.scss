@@ -3,6 +3,9 @@
   display: grid;
   place-items: center;
   padding: 3rem 1rem;
+  background-image: linear-gradient(rgba(37,99,235,0.12), rgba(14,165,233,0.06)), url('/images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .login-card {
@@ -13,7 +16,7 @@
   gap: 2rem;
   padding: 2rem;
   border-radius: 2rem;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.96);
   border: 1px solid rgba(15, 23, 42, 0.08);
   box-shadow: 0 28px 60px rgba(15, 23, 42, 0.08);
 }
@@ -22,8 +25,22 @@
   display: grid;
   place-items: center;
   padding: 1rem;
-  background: linear-gradient(180deg, #eff6ff, #dbeafe);
+  background: linear-gradient(180deg, rgba(239,246,255,0.9), rgba(219,234,254,0.85));
   border-radius: 1.6rem;
+}
+
+.login-card::after {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: 40px;
+  top: 40px;
+  background-image: url('/images/libro2.jpg');
+  background-size: cover;
+  opacity: 0.12;
+  transform: rotate(-10deg);
+  pointer-events: none;
 }
 
 .login-visual img {
