@@ -14,7 +14,7 @@ import lombok.Data;
 public class Calendario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_calendario;
+    private int id_calendario;
 
     @Column(nullable = false)
     private String fecha_exacta;
