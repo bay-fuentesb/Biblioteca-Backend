@@ -1,0 +1,29 @@
+<section class="nuevo-libro-page px-4 py-5">
+  <h2>Agregar nuevo libro</h2>
+  <form (submit)="crearLibro(); $event.preventDefault();" class="form-grid">
+    <label>
+      Título
+      <input type="text" [(ngModel)]="titulo" name="titulo" required />
+    </label>
+    <label>
+      ISBN
+      <input type="text" [(ngModel)]="isbn" name="isbn" required />
+    </label>
+    <label>
+      Año de publicación
+      <input type="number" [(ngModel)]="anno_publicacion" name="anno_publicacion" required />
+    </label>
+    <label class="wide-label">
+      Descripción
+      <textarea [(ngModel)]="descripcion" name="descripcion" rows="5" required></textarea>
+    </label>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Guardar libro</button>
+      <a routerLink="/libros" class="btn btn-secondary">Cancelar</a>
+    </div>
+
+    <p class="success" *ngIf="mensaje">{{ mensaje }}</p>
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </form>
+</section>

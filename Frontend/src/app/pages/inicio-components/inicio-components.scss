@@ -62,17 +62,25 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
 .hero-actions .hero-btn {
-  min-width: 160px;
+  min-width: 180px;
 }
 
 .hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
   height: 3.75rem;
   padding: 0 1.8rem;
   border-radius: 999px;
   font-weight: 700;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: 0.01em;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -88,29 +96,23 @@
 }
 
 .hero-btn-outline {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #0f172a;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
 }
 
 .hero-btn-outline:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: #f8fafc;
 }
 
 .hero-decor {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 280px;
-  border-radius: 1.8rem;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  min-height: 320px;
 }
 
-.hero-icon {
-  font-size: 5.2rem;
-  color: rgba(255, 255, 255, 0.95);
+.hero-image {
+  width: min(100%, 320px);
 }
 
 .feature-grid {
@@ -134,27 +136,18 @@
   box-shadow: 0 22px 45px rgba(15, 23, 42, 0.12);
 }
 
-.feature-card .icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 1rem;
-  color: #ffffff;
+.feature-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 1.5rem;
+  display: grid;
+  place-items: center;
+  background: #eff6ff;
   margin-bottom: 1rem;
 }
 
-.icon-book {
-  background: linear-gradient(135deg, #0ea5e9, #3730a3);
-}
-
-.icon-author {
-  background: linear-gradient(135deg, #10b981, #047857);
-}
-
-.icon-loan {
-  background: linear-gradient(135deg, #f59e0b, #b45309);
+.feature-icon img {
+  width: 48px;
 }
 
 .feature-card h2 {
@@ -215,6 +208,33 @@
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(15, 23, 42, 0.06);
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.05);
+}
+
+.stat-card strong {
+  display: block;
+}
+
+.stat-emoji {
+  font-size: 2rem;
+}
+
+@media (max-width: 980px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .stat-card strong {

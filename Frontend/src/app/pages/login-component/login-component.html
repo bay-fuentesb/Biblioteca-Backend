@@ -1,1 +1,23 @@
-<p>login-component works!</p>
+<section class="login-page">
+  <div class="login-card">
+    <div class="login-visual">
+      <img src="/login.svg" alt="Login" />
+    </div>
+    <div class="login-form">
+      <h2>Iniciar sesión</h2>
+      <p>Ingresa al panel administrativo de All For Read.</p>
+      <form>
+        <label>
+          Usuario
+          <input type="text" placeholder="usuario@allforread.com" />
+        </label>
+        <label>
+          Contraseña
+          <input type="password" placeholder="********" />
+        </label>
+        <button type="button" class="btn btn-primary">Entrar</button>
+      </form>
+      <a routerLink="/" class="link-secondary">Volver al inicio</a>
+    </div>
+  </div>
+</section>

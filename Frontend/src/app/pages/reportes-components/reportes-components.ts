@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-login-component',
+  selector: 'app-reportes-components',
   imports: [CommonModule, RouterLink],
-  templateUrl: './login-component.html',
-  styleUrl: './login-component.scss',
+  templateUrl: './reportes-components.html',
+  styleUrls: ['./reportes-components.scss'],
 })
-export class LoginComponent {}
+export class ReportesComponents {}

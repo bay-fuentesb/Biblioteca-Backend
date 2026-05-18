@@ -1,3 +1,3 @@
 export const environment = {
-    "urlLibro": "http://localhost:7575/libro"
+    "urlLibro": "http://localhost:8080/libro"
 };

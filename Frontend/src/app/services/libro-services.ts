@@ -18,8 +18,10 @@ export class LibrosServices {
     return await lastValueFrom(this.http.post<Libro2>(environment.urlLibro, libroNuevo));
   }
 
+  async obtenerLibro(id_libro: number){
+    return await lastValueFrom(this.http.get<Libro2>(`${environment.urlLibro}/${id_libro}`));
+  }
 }
-
 
 interface bodyAgregarLibro {
   "titulo": String;

@@ -1,0 +1,14 @@
+<section class="detalle-page px-4 py-5">
+  <h2>Detalle del libro</h2>
+  <div *ngIf="cargando" class="status-message">Cargando información...</div>
+  <div *ngIf="!cargando && error" class="status-message error">{{ error }}</div>
+
+  <article *ngIf="!cargando && libro" class="detalle-card">
+    <h3>{{ libro.titulo }}</h3>
+    <p><strong>ISBN:</strong> {{ libro.isbn }}</p>
+    <p><strong>Año de publicación:</strong> {{ libro.anno_publicacion }}</p>
+    <p><strong>Descripción:</strong></p>
+    <p>{{ libro.descripcion }}</p>
+    <a routerLink="/libros" class="btn btn-secondary">Volver al catálogo</a>
+  </article>
+</section>

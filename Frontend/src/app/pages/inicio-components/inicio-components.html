@@ -1,42 +1,46 @@
 ﻿<div class="inicio-page container-fluid px-4 py-5">
   <section class="hero-section">
     <div class="hero-text">
-      <p class="eyebrow">Bienvenido a Biblioteca Central</p>
-      <h1 class="hero-title">Gestiona libros, autores y préstamos desde un panel moderno y claro.</h1>
-      <p class="hero-copy">Todo el control en un solo lugar: consulta el catálogo, administra autores y sigue cada préstamo con rapidez.</p>
+      <p class="eyebrow">Bienvenido a All For Read</p>
+      <h1 class="hero-title">Gestiona libros, autores y préstamos con estilo y rapidez.</h1>
+      <p class="hero-copy">Todo el control en un solo lugar: consulta el catálogo, administra autores y sigue cada préstamo sin complicaciones.</p>
       <div class="hero-actions">
-        <button class="hero-btn hero-btn-primary" type="button" routerLink="/libros">Ver Catálogo</button>
-        <button class="hero-btn hero-btn-outline" type="button" routerLink="/prestamos">Ir a Préstamos</button>
+        <a class="hero-btn hero-btn-primary" routerLink="/libros">Ver Catálogo</a>
+        <a class="hero-btn hero-btn-outline" routerLink="/prestamos">Ir a Préstamos</a>
       </div>
     </div>
 
     <div class="hero-decor">
-      <div class="hero-icon">
-        <i class="bi bi-book-half"></i>
-      </div>
+      <img src="/library.svg" alt="Ilustración de biblioteca" class="hero-image" />
     </div>
   </section>
 
   <section class="feature-grid">
     <article class="feature-card">
-      <div class="icon icon-book"><i class="bi bi-journal-bookmark"></i></div>
+      <div class="feature-icon">
+        <img src="/book.svg" alt="Libros" />
+      </div>
       <h2>Libros</h2>
       <p>Administra el inventario completo, añade nuevos ejemplares y edita los detalles de cada obra.</p>
-      <button class="feature-btn feature-btn-primary" type="button" routerLink="/libros/nuevo">Añadir Libro</button>
+      <a class="feature-btn feature-btn-primary" routerLink="/libros/nuevo">Añadir Libro</a>
     </article>
 
     <article class="feature-card">
-      <div class="icon icon-author"><i class="bi bi-person-badge"></i></div>
+      <div class="feature-icon">
+        <img src="/author.svg" alt="Autores" />
+      </div>
       <h2>Autores</h2>
       <p>Gestiona autores, organiza obras por creador y mantén la información siempre actualizada.</p>
-      <button class="feature-btn feature-btn-secondary" type="button" routerLink="/autores">Ver Autores</button>
+      <a class="feature-btn feature-btn-secondary" routerLink="/autores">Ver Autores</a>
     </article>
 
     <article class="feature-card">
-      <div class="icon icon-loan"><i class="bi bi-calendar-check"></i></div>
+      <div class="feature-icon">
+        <img src="/loan.svg" alt="Préstamos" />
+      </div>
       <h2>Préstamos</h2>
       <p>Controla fechas de entrega, devoluciones y el estado del préstamo con claridad.</p>
-      <button class="feature-btn feature-btn-dark" type="button" routerLink="/prestamos">Ir a Préstamos</button>
+      <a class="feature-btn feature-btn-dark" routerLink="/prestamos">Ir a Préstamos</a>
     </article>
   </section>
 
@@ -46,7 +50,7 @@
         <span class="stat-label">Rápido</span>
         <strong>Flujo claro y visual</strong>
       </div>
-      <i class="bi bi-lightning-charge-fill fs-2"></i>
+      <span class="stat-emoji">⚡</span>
     </div>
 
     <div class="stat-card">
@@ -54,7 +58,7 @@
         <span class="stat-label">Organizado</span>
         <strong>Todo en su lugar</strong>
       </div>
-      <i class="bi bi-folder-fill fs-2"></i>
+      <span class="stat-emoji">📁</span>
     </div>
 
     <div class="stat-card">
@@ -62,11 +66,7 @@
         <span class="stat-label">Seguro</span>
         <strong>Gestión confiable</strong>
       </div>
-      <i class="bi bi-shield-lock-fill fs-2"></i>
+      <span class="stat-emoji">🔐</span>
     </div>
   </section>
-
-  <footer>
-    © 2026 Biblioteca Central - Panel de Administración
-  </footer>
 </div>
