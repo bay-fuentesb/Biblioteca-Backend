@@ -35,6 +35,11 @@ public class EjemplarController {
     public List<Ejemplar> getEjemplares() {
         return ejemplarService.ObtenerEjemplares();
     }
+
+    @GetMapping("/{id_ejemplar}")
+    public Ejemplar getEjemplar(@PathVariable int id_ejemplar) {
+        return ejemplarService.obtenerEjemplarPorId(id_ejemplar);
+    }
     
     @PostMapping("")
     public Ejemplar agregarEjemplar(@RequestBody EjemplarRequest ejemplarNuevo){

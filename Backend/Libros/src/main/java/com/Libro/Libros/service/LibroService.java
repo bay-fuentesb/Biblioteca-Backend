@@ -79,7 +79,7 @@ public class LibroService {
         if (libroExiste == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Libro no encontrado con ID: " + idLibro);
         }
-        libroRepo.delete(libroExiste);
+        libroRepo.deleteById(idLibro);
         return "Libro eliminado con éxito";
     }
 }

@@ -11,6 +11,8 @@ public class LibroActualizarRequest {
     private String titulo;
     @NotBlank(message = "El ISBN del libro es obligatorio")
     private String isbn;
+    @NotBlank(message = "El año de publicación del libro es obligatorio")
     private int anno_publicacion;
+    @NotBlank(message = "La descripción del libro es obligatoria")
     private String descripcion;
 }
