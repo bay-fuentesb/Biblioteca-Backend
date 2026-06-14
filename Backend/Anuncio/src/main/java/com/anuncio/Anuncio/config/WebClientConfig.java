@@ -1,4 +1,4 @@
-package com.calendario.Calendario.config;
+package com.anuncio.Anuncio.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -9,6 +9,6 @@ public class WebClientConfig {
     @Bean
     public WebClient marcaWebClient(){
         return WebClient.builder()
-        .baseUrl("http://localhost:7070/").build();
+        .baseUrl("http://Libros:8080/").build();
     }
 }
