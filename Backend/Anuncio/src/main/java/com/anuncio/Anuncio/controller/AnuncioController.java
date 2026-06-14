@@ -1,50 +1,41 @@
 package com.anuncio.Anuncio.controller;
 
+
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import com.anuncio.Anuncio.Model.entities.Anuncio;
 import com.anuncio.Anuncio.Model.request.AnuncioActualizarRequest;
 import com.anuncio.Anuncio.Model.request.AnuncioRequest;
 import com.anuncio.Anuncio.service.AnuncioService;
-
 import jakarta.validation.Valid;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-
-
-
-
-
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*") // Permite peticiones de tu frontend hacia la EC2 sin bloqueos de CORS
 @RequestMapping("/calendario")
 @RestController
-public class AnuncioController {
+public class AnuncioController extends BaseController<Anuncio, Integer> {
     
     @Autowired
     private AnuncioService anuncioService;
+
+    // Implementamos el método obligatorio del BaseController
+    @Override
+    protected AnuncioService getService() {
+        return this.anuncioService;
+    }
+
+    // --- Endpoints Específicos del Dominio de Anuncios ---
 
     @GetMapping("")
     public List<Anuncio> obtenerCalendario() {
         return anuncioService.obtenerAnuncio();
     }
 
-    @GetMapping("/{idanuncio}")
+    @GetMapping("/{idAnuncio}")
     public Anuncio obtenerAnuncioporId(@PathVariable int idAnuncio) {
         return anuncioService.obtenerAnuncioporId(idAnuncio);
     }
     
-
     @PostMapping("")
     public Anuncio AgregarCalendario(@Valid @RequestBody AnuncioRequest anuncioRequest) {
         return anuncioService.AgregarAnuncio(anuncioRequest);
@@ -54,7 +45,8 @@ public class AnuncioController {
     public Anuncio actualizarCalendario(@Valid @RequestBody AnuncioActualizarRequest anuncioActualizarRequest) {
         return anuncioService.actualizaranuncio(anuncioActualizarRequest);
     }
-    @DeleteMapping("/{idcalendario}")
+
+    @DeleteMapping("/{idCalendario}")
     public String eliminarCalendario(@PathVariable int idCalendario) {
         return anuncioService.eliminaranuncio(idCalendario);
     }

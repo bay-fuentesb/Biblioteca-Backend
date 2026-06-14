@@ -8,11 +8,11 @@
 		<version>4.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.vehiculo</groupId>
-	<artifactId>Automotora</artifactId>
+	<groupId>com.multa</groupId>
+	<artifactId>Multa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name>Multa</name>
+	<description>Servicio de gestión de multas</description>
 	<url/>
 	<licenses>
 		<license/>

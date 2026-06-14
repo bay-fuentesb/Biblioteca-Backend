@@ -10,7 +10,7 @@ export class PrestamoServices {
   private http = inject(HttpClient);
 
   async crearPrestamo(nuevoPrestamo: any) {
-    return await lastValueFrom(this.http.post<any>(environment.urlPrestamo, nuevoPrestamo));
+    return await lastValueFrom(this.http.post<any>(environment.urlReserva, nuevoPrestamo));
   }
 
   // placeholder for other prestamo methods

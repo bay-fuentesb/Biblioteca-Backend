@@ -9,7 +9,7 @@ public class WebClientConfig {
     @Bean
     public WebClient marcawebClient() {
         return WebClient.builder()
-                .baseUrl("http://localhost:8080")
+                .baseUrl("http://localhost:4545")
                 .build();
     }
 }

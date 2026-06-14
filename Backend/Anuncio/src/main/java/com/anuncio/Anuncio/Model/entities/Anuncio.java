@@ -16,8 +16,8 @@ public class Anuncio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_anuncio;
 
-    @Column(nullable = false)
-    private String fecha_exacta;
+    @Column(name = "fecha_exacta", nullable = false)
+    private String fechaExacta;
 
     @Column(nullable = false)
     private String motivo;
