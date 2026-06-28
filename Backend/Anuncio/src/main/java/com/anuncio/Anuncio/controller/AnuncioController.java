@@ -13,18 +13,16 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins = "*") // Permite peticiones de tu frontend hacia la EC2 sin bloqueos de CORS
 @RequestMapping("/calendario")
 @RestController
-public class AnuncioController extends BaseController<Anuncio, Integer> {
+public class AnuncioController{
     
     @Autowired
     private AnuncioService anuncioService;
 
-    // Implementamos el método obligatorio del BaseController
-    @Override
+   
     protected AnuncioService getService() {
         return this.anuncioService;
     }
 
-    // --- Endpoints Específicos del Dominio de Anuncios ---
 
     @GetMapping("")
     public List<Anuncio> obtenerCalendario() {
@@ -38,16 +36,16 @@ public class AnuncioController extends BaseController<Anuncio, Integer> {
     
     @PostMapping("")
     public Anuncio AgregarCalendario(@Valid @RequestBody AnuncioRequest anuncioRequest) {
-        return anuncioService.AgregarAnuncio(anuncioRequest);
+        return anuncioService.agregarAnuncio(anuncioRequest);
     }    
 
     @PutMapping("")
     public Anuncio actualizarCalendario(@Valid @RequestBody AnuncioActualizarRequest anuncioActualizarRequest) {
-        return anuncioService.actualizaranuncio(anuncioActualizarRequest);
+        return anuncioService.actualizarAnuncio(anuncioActualizarRequest);
     }
 
     @DeleteMapping("/{idCalendario}")
     public String eliminarCalendario(@PathVariable int idCalendario) {
-        return anuncioService.eliminaranuncio(idCalendario);
+        return anuncioService.eliminarAnuncio(idCalendario);
     }
 }

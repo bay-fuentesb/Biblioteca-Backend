@@ -11,17 +11,16 @@ import com.Libro.Libros.Model.request.BaseRequest;
 @RequestMapping("/")
 public class BaseController {
 
-    // Lee los valores definidos en tu application.properties
-    @Value("${spring.application.name:microservicio-biblioteca}")
+    @Value("${app.nombre:Mi Aplicación}")
     private String nombreApp;
 
-    // Puedes definir la versión aquí o dejar una por defecto si no existe en las propiedades
+  
     @Value("${app.version:1.0.0}")
     private String versionApp;
 
     @GetMapping("")
     public BaseRequest baseController() {
-        // Retorna el objeto con el nombre y versión del servicio en AWS
+ 
         return new BaseRequest(nombreApp, versionApp);
     }
 }

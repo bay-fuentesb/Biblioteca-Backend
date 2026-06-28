@@ -1,19 +1,30 @@
 package com.anuncio.Anuncio.controller;
 
-import java.util.List;
+
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 
-// Quitamos el @RestController de aquí porque esta clase es abstracta y no se instancia directamente
-public abstract class BaseController<T, ID> {
 
-    // En lugar de inyectar un servicio específico, definiremos un método abstracto
-    // para que el controlador hijo provea su propio servicio.
-    protected abstract Object getService();
+import com.anuncio.Anuncio.Model.request.BaseRequest;
 
-    // Aquí puedes programar los endpoints genéricos que compartirán todos tus controladores
-    // Por ejemplo, un validador de salud rápido como el que tenías en la Automotora:
-    @GetMapping("/status")
-    public String status() {
-        return "Microservicio activo y respondiendo correctamente";
+
+
+
+@RestController
+@RequestMapping("/")
+public abstract class BaseController {
+
+
+    @Value("${app.name}")
+    private String nombreApp;
+
+    @Value("${app.version}")
+    private String versionApp;
+
+    @GetMapping("")
+    public BaseRequest baseController() {
+        return new BaseRequest(nombreApp, versionApp);
     }
+    
 }

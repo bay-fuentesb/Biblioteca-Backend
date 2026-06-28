@@ -2,6 +2,7 @@ package com.anuncio.Anuncio.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,68 +18,65 @@ import com.anuncio.Anuncio.repositories.AnuncioRepository;
 @Service
 public class AnuncioService {
     
-    private final AnuncioRepository anuncioRepo;
-    private final WebClient webClient;
+    @Autowired
+    private  AnuncioRepository anuncioRepo;
 
-    // Inyección por constructor limpia (Mala práctica eliminada: se quitaron los @Autowired duplicados)
-    public AnuncioService(AnuncioRepository anuncioRepo, WebClient webClient) {
-        this.anuncioRepo = anuncioRepo;
-        this.webClient = webClient;
-    }
+    @Autowired
+    private  WebClient webClient;
 
     public Anuncio obtenerAnuncioporId(int idAnuncio) {
         return anuncioRepo.findById(idAnuncio).orElse(null);
-    }
+     }
 
-    public List<Anuncio> obtenerAnuncio() {
+
+     public List<Anuncio> obtenerAnuncio() {
         return anuncioRepo.findAll();
-    }
+     }
 
-    public Anuncio AgregarAnuncio(AnuncioRequest nuevoAnuncio) {
-        AnuncioDto fecha = null;
+     public Anuncio agregarAnuncio(AnuncioRequest anuncioNuevo){
+        AnuncioDto anuncioDto = null;
+
         try {
-            // CORREGIDO: Se añadió la plantilla de variable "{fecha}" en la URI
-            fecha = webClient.get()
-                    .uri("anuncio/fecha/{fecha}", nuevoAnuncio.getFecha_exacta())
+            anuncioDto = webClient.get()
+                    .uri("anuncio/{idAnuncio}", anuncioNuevo.getId_anuncio())
                     .retrieve()
                     .bodyToMono(AnuncioDto.class)
                     .block();
-        } catch (WebClientResponseException e) {
+        }catch (WebClientResponseException e) {
             throw new ResponseStatusException(HttpStatus.valueOf(e.getStatusCode().value()),
-            "Error al obtener la fecha: " + e.getResponseBodyAsString());
-        } catch(Exception e){
+            "Error al obtener el anuncio: " + e.getStatusText());
+     } catch(Exception e){
             throw new ResponseStatusException(
                 HttpStatus.SERVICE_UNAVAILABLE,
-                "Error al agregar la fecha: " + e.getMessage());
-        }
+                "Error de conexion con el servicio de anuncio: " + e.getMessage());
+            }
 
         Anuncio anuncio = new Anuncio();
-        anuncio.setFechaExacta(nuevoAnuncio.getFecha_exacta());
-        anuncio.setMotivo(nuevoAnuncio.getMotivo());
-        anuncio.setHora_inicio(nuevoAnuncio.getHora_inicio());
-        
-        // CORREGIDO CRÍTICO: ¡Ahora sí guardamos el registro en la base de datos MySQL!
-        return anuncioRepo.save(anuncio); 
-    }
-
-    public Anuncio actualizaranuncio(AnuncioActualizarRequest anuncioEditado){
-        Anuncio anuncioexiste = anuncioRepo.findById(anuncioEditado.getId_anuncio()).orElse(null);
-        if (anuncioexiste == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "anuncio no encontrado");
+        anuncio.setId_anuncio(anuncioNuevo.getId_anuncio());
+        anuncio.setFechaExacta(anuncioNuevo.getFecha_exacta());
+        anuncio.setMotivo(anuncioNuevo.getMotivo());
+        anuncio.setHora_inicio(anuncioNuevo.getHora_inicio());
+        return anuncioRepo.save(anuncio);
         }
-        anuncioexiste.setFechaExacta(anuncioEditado.getFecha_exacta());
-        anuncioexiste.setMotivo(anuncioEditado.getMotivo());
-        anuncioexiste.setHora_inicio(anuncioEditado.getHora_inicio());
-        
-        return anuncioRepo.save(anuncioexiste);
-    }
 
-    public String eliminaranuncio(int idAnuncio){
-        Anuncio anuncioexiste = anuncioRepo.findById(idAnuncio).orElse(null);
-        if (anuncioexiste == null) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "anuncio no encontrado");
+        public Anuncio actualizarAnuncio(AnuncioActualizarRequest anuncioEditado) {
+           Anuncio anuncioExistente = anuncioRepo.findById(anuncioEditado.getId_anuncio()).orElse(null);
+           if (anuncioExistente == null) {
+               throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Anuncio no encontrado");
+           }
+           anuncioExistente.setFechaExacta(anuncioEditado.getFecha_exacta());
+           anuncioExistente.setMotivo(anuncioEditado.getMotivo());
+           anuncioExistente.setHora_inicio(anuncioEditado.getHora_inicio());
+
+           return anuncioRepo.save(anuncioExistente);
         }
-        anuncioRepo.deleteById(idAnuncio);
-        return "anuncio eliminado correctamente";
+
+        public String eliminarAnuncio(int idAnuncio) {
+            Anuncio anuncioExistente = anuncioRepo.findById(idAnuncio).orElse(null);
+            if (anuncioExistente == null) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Anuncio no encontrado");
+            }
+            anuncioRepo.delete(anuncioExistente);
+            return "Anuncio eliminado correctamente";
+        }
     }
-}
